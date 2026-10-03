@@ -1,0 +1,31 @@
+.env
+.env.*
+!.env.example
+
+.venv/
+venv/
+env/
+ENV/
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test and coverage output
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Type checking and lint caches
+.mypy_cache/
+.pyright/
+.ruff_cache/
+
+# Packaging output
+build/
+dist/
+*.egg-info/
+
+# Local logs
+*.log

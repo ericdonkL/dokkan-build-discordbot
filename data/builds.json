@@ -1,0 +1,481 @@
+{
+  "characters": [
+    {
+      "card_id": "1",
+      "name": "Test Card (placeholder)",
+      "image": "1.png",
+      "aliases": [
+        "Test Card (placeholder)"
+      ],
+      "hidden_potential": [
+        0,
+        0,
+        0
+      ],
+      "skill_orbs": "TEST DATA ONLY - replace with verified skill orbs.",
+      "source": "Test record only; not a real character or recommendation."
+    },
+    {
+      "card_id": "2",
+      "name": "Card 2",
+      "image": "default.png",
+      "aliases": [
+        "Card 2"
+      ],
+      "hidden_potential": [
+        12,
+        3,
+        6
+      ],
+      "skill_orbs": "Focus on Defense with additional, then dodge",
+      "source": "User-submitted via /addbuild"
+    },
+    {
+      "card_id": "3",
+      "name": "Card 3",
+      "image": "default.png",
+      "aliases": [
+        "test",
+        "seperator",
+        "Card 3"
+      ],
+      "hidden_potential": [
+        2,
+        3,
+        5
+      ],
+      "skill_orbs": "xd",
+      "source": "User-submitted via /addbuild"
+    },
+    {
+      "card_id": "1034201",
+      "name": "Pinnacle of the Fierce Battle Super Saiyan 3 Goku",
+      "image": "1034201.png",
+      "aliases": [
+        "INT LR SSJ3 Goku",
+        "GDC SSJ3 Goku",
+        "Pinnacle of the Fierce Battle Super Saiyan 3 Goku"
+      ],
+      "hidden_potential": [
+        12,
+        0,
+        9
+      ],
+      "skill_orbs": "Defense with dodge then additional",
+      "source": "User-submitted via /addbuild"
+    },
+    {
+      "card_id": "1027681",
+      "name": "Growth through Predation Android #21 (Transformed, Evil)",
+      "image": "default.png",
+      "aliases": [
+        "PHY 21",
+        "PHY EZA 21",
+        "Evil 21",
+        "Android 21",
+        "FighterZ",
+        "Growth through Predation Android #21 (Transformed, Evil)"
+      ],
+      "hidden_potential": [
+        15,
+        6,
+        0
+      ],
+      "skill_orbs": "Defense with Crit, then dodge",
+      "source": "User-submitted via /addbuild"
+    },
+    {
+      "card_id": "1032461",
+      "name": "[Demon Who Attained Immortality] Super Garlic Jr.",
+      "image": "default.png",
+      "aliases": [
+        "LR AGL Garlic Jr.",
+        "F2p Garlic Jr.",
+        "Battlefield",
+        "[Demon Who Attained Immortality] Super Garlic Jr."
+      ],
+      "hidden_potential": [
+        15,
+        6,
+        0
+      ],
+      "skill_orbs": "Defense with dodge, then crit",
+      "source": "scurr"
+    },
+    {
+      "card_id": "1005051",
+      "name": "[Netherworld Demon] Super Janemba",
+      "image": "card_1005051.png",
+      "aliases": [
+        "SEZA TUR INT SUPER JANEMBA",
+        "Int Janemba",
+        "[Netherworld Demon] Super Janemba"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on dodge and additional with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1004651",
+      "name": "[Surpassing All] Perfect Cell",
+      "image": "card_1004651.png",
+      "aliases": [
+        "SEZA TUR TEQ PERFECT CELL",
+        "[Surpassing All] Perfect Cell"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on raw DEF stats and additional with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1003801",
+      "name": "[Super Warrior of Destruction] Legendary Super Saiyan Broly",
+      "image": "card_1003801.png",
+      "aliases": [
+        "SEZA TUR STR LSSJ BROLY",
+        "[Super Warrior of Destruction] Legendary Super Saiyan Broly"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on additional, then Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1005301",
+      "name": "[Devastating Punishment] Beerus",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR TEQ BEERUS",
+        "[Devastating Punishment] Beerus"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1005281",
+      "name": "[The Supreme Warrior] Super Gogeta",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR STR SUPER GOGETA",
+        "[The Supreme Warrior] Super Gogeta"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on Dodge then Additional with  orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1009431",
+      "name": "[Ultimate Super Saiyan] Super Saiyan 4 Goku",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR STR SS4 GOKU",
+        "[Ultimate Super Saiyan] Super Saiyan 4 Goku"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on raw DEF stats then additional / dodge with orbs",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1005731",
+      "name": "[Warrior's True Value] Super Saiyan 3 Vegeta",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR STR SS3 VEGTA",
+        "[Warrior's True Value] Super Saiyan 3 Vegeta"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on raw DEF then Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1006211",
+      "name": "[Grim Reaper of Justice's Rampage] Super Saiyan 3 Gotenks",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR TEQ SS3 GOTENKS",
+        "[Grim Reaper of Justice's Rampage] Super Saiyan 3 Gotenks"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1003311",
+      "name": "[Heartless Destruction] Buu (Kid)",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR PHY KID BUU",
+        "[Heartless Destruction] Buu (Kid)"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1008851",
+      "name": "[Dark Menace] Goku Black",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR PHY GOKU BLACK",
+        "[Dark Menace] Goku Black"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1008631",
+      "name": "[Next-Level Strike] Super Saiyan God SS Goku",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR AGL SSBKK GOKU",
+        "[Next-Level Strike] Super Saiyan God SS Goku"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1003211",
+      "name": "[Mystery Super Technique] Super Saiyan 3 Goku",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR AGL SS3 GOKU",
+        "[Mystery Super Technique] Super Saiyan 3 Goku"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1009331",
+      "name": "[Azure Omnipotence] Super Saiyan God SS Vegito",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR PHY SSB VEGITO",
+        "[Azure Omnipotence] Super Saiyan God SS Vegito"
+      ],
+      "hidden_potential": [
+        10,
+        11,
+        0
+      ],
+      "skill_orbs": "Focus on raw def and atk with orbs, then split it between additional and crit for the abilites.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1004251",
+      "name": "[Emperor's Devotion] Frieza (Full Power)",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR PHY FINAL FORM FRIEZA",
+        "FF FP FRIEZA",
+        "FFFP",
+        "[Emperor's Devotion] Frieza (Full Power)"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1006701",
+      "name": "[Ultimate Power Surge} Ultimate Gohan",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR INT ULTIMATE GOHAN",
+        "[Ultimate Power Surge} Ultimate Gohan"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on Dodge with Orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1009351",
+      "name": "[Rose Stained Super Saiyan] Goku Black (Super Saiyan Rosé)",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR AGL SSR GOKU BLACK",
+        "Rose",
+        "Rosé",
+        "[Rose Stained Super Saiyan] Goku Black (Super Saiyan Rosé)"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on raw DEF then Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1009831",
+      "name": "[Unparalleled Super Saiyan] Super Saiyan 4 Vegeta",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR AGL SS4 VEGETA",
+        "[Unparalleled Super Saiyan] Super Saiyan 4 Vegeta"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on raw DEF then Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1006791",
+      "name": "[Unparalleled Golden Ki] Super Vegito",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR AGL SUPER VEGITO",
+        "[Unparalleled Golden Ki] Super Vegito"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on raw DEF then Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1008091",
+      "name": "[Countdown to Despair] Majin Buu (Ultimate Gohan)",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR INT BUUHAN",
+        "[Countdown to Despair] Majin Buu (Ultimate Gohan)"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on raw DEF or ATK then Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1009591",
+      "name": "[Passion of the Warrior Race] Super Saiyan God SS Vegeta",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR INT SSB VEGETA",
+        "[Passion of the Warrior Race] Super Saiyan God SS Vegeta"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on raw DEF then Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1008711",
+      "name": "[Hopeless Minus Energy] Omega Shenron",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR OMEGA SHENRON",
+        "[Hopeless Minus Energy] Omega Shenron"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on raw ATK then Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1013541",
+      "name": "[Transdimensional Instinct] Goku (Ultra Instinct -Sign-)",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR INT UI GOKU",
+        "Sign",
+        "[Transdimensional Instinct] Goku (Ultra Instinct -Sign-)"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on raw DEF then Dodge with orbs.",
+      "source": "Batman"
+    },
+    {
+      "card_id": "1009091",
+      "name": "[Open the Gates of Hell] Cooler (Final Form)",
+      "image": "default.png",
+      "aliases": [
+        "SEZA TUR PHY FINAL FORM COOLER",
+        "FF COOLER",
+        "[Open the Gates of Hell] Cooler (Final Form)"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on raw DEF and Dodge then Additional with orbs.",
+      "source": "Batman"
+    }
+  ]
+}
