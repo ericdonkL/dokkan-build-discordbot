@@ -88,7 +88,7 @@
         6
       ],
       "skill_orbs": "Focus on dodge and additional with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1004651",
@@ -106,7 +106,7 @@
         6
       ],
       "skill_orbs": "Focus on raw DEF stats and additional with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1003801",
@@ -124,7 +124,7 @@
         6
       ],
       "skill_orbs": "Focus on additional, then Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1005301",
@@ -141,7 +141,7 @@
         6
       ],
       "skill_orbs": "Focus on Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1005281",
@@ -159,7 +159,7 @@
         6
       ],
       "skill_orbs": "Focus on Dodge then Additional with  orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1009431",
@@ -178,7 +178,7 @@
         6
       ],
       "skill_orbs": "Focus on raw DEF stats then additional / dodge with orbs",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1005731",
@@ -196,7 +196,7 @@
         6
       ],
       "skill_orbs": "Focus on raw DEF then Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1006211",
@@ -214,7 +214,7 @@
         6
       ],
       "skill_orbs": "Focus on Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1003311",
@@ -232,7 +232,7 @@
         6
       ],
       "skill_orbs": "Focus on Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1008851",
@@ -250,7 +250,7 @@
         6
       ],
       "skill_orbs": "Focus on Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1008631",
@@ -269,7 +269,7 @@
         6
       ],
       "skill_orbs": "Focus on Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1003211",
@@ -287,7 +287,7 @@
         6
       ],
       "skill_orbs": "Focus on Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1009331",
@@ -306,7 +306,7 @@
         0
       ],
       "skill_orbs": "Focus on raw def and atk with orbs, then split it between additional and crit for the abilites.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1004251",
@@ -325,7 +325,7 @@
         6
       ],
       "skill_orbs": "Focus on Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1006701",
@@ -343,7 +343,7 @@
         6
       ],
       "skill_orbs": "Focus on Dodge with Orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1009351",
@@ -363,7 +363,7 @@
         6
       ],
       "skill_orbs": "Focus on raw DEF then Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1009831",
@@ -381,7 +381,7 @@
         6
       ],
       "skill_orbs": "Focus on raw DEF then Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1006791",
@@ -400,7 +400,7 @@
         6
       ],
       "skill_orbs": "Focus on raw DEF then Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1008091",
@@ -418,7 +418,7 @@
         6
       ],
       "skill_orbs": "Focus on raw DEF or ATK then Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1009591",
@@ -435,7 +435,7 @@
         6
       ],
       "skill_orbs": "Focus on raw DEF then Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1008711",
@@ -452,7 +452,7 @@
         6
       ],
       "skill_orbs": "Focus on raw ATK then Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1013541",
@@ -470,7 +470,7 @@
         6
       ],
       "skill_orbs": "Focus on raw DEF then Dodge with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     },
     {
       "card_id": "1009091",
@@ -488,7 +488,7 @@
         6
       ],
       "skill_orbs": "Focus on raw DEF and Dodge then Additional with orbs.",
-      "source": "Batman"
+      "source": ".batman.616"
     }
   ]
 }

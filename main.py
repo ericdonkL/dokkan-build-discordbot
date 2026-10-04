@@ -415,7 +415,7 @@ class AddBuildHipoModal(discord.ui.Modal, title="Hidden Potential"):
             **self.draft,
             "hidden_potential": [int(value) for value in raw_values],
             "skill_orbs": skill_orbs,
-            "source": "Batman",
+            "source": ".batman.616",
             #"source": interaction.user.display_name,
         }
         try:
@@ -758,7 +758,6 @@ def create_build_embed(
     embed.add_field(name="Skill Orbs", value=skill_orbs, inline=False)
     display_name = discord.utils.escape_mentions(build["source"])
     embed.set_footer(text=f"Build from: @{display_name}")
-    #embed.set_footer(text=f"Build from: @Batman")
     return embed
 
 
