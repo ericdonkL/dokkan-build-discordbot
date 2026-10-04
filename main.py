@@ -93,6 +93,30 @@ async def report_interaction_error(
         logger.debug("Could not notify the user about the error in %s", context)
 
 
+async def ensure_admin_context(interaction: discord.Interaction, label: str) -> bool:
+    """Refuse an interaction unless it comes from the designated admin server.
+
+    ``label`` is the command name shown in the refusal message (e.g. ``/addbuild``).
+
+    Every entry point that can lead to a write calls this: the slash commands
+    themselves, the modals that persist data, and the view that opens the second
+    modal. A caller may only proceed when this returns ``True``.
+    """
+    if interaction.guild_id != BUILD_ADMIN_GUILD_ID:
+        await interaction.response.send_message(
+            f"`{label}` can only be used in the designated server.", ephemeral=True
+        )
+        return False
+
+    if not interaction.permissions.administrator:
+        await interaction.response.send_message(
+            f"Administrator permission is required to use `{label}`.", ephemeral=True
+        )
+        return False
+
+    return True
+
+
 def validate_character_build(record: object) -> CharacterBuild:
     if not isinstance(record, dict):
         raise BuildDataError("Each character build must be an object")
@@ -296,6 +320,9 @@ class AddBuildModal(discord.ui.Modal, title="Add character build"):
         await report_interaction_error(interaction, error, "add-build modal")
 
     async def on_submit(self, interaction: discord.Interaction) -> None:
+        if not await ensure_admin_context(interaction, "/addbuild"):
+            return
+
         card_id = self.card_id_input.value.strip()
         if not card_id.isascii() or not card_id.isdigit():
             await interaction.response.send_message(
@@ -362,6 +389,9 @@ class AddBuildHipoModal(discord.ui.Modal, title="Hidden Potential"):
         await report_interaction_error(interaction, error, "add-build details modal")
 
     async def on_submit(self, interaction: discord.Interaction) -> None:
+        if not await ensure_admin_context(interaction, "/addbuild"):
+            return
+
         raw_values = [
             self.dodge_input.value.strip(),
             self.crit_input.value.strip(),
@@ -451,7 +481,7 @@ class AddBuildHipoView(discord.ui.View):
                 ephemeral=True,
             )
             return False
-        return True
+        return await ensure_admin_context(interaction, "/addbuild")
 
     async def on_timeout(self) -> None:
         for item in self.children:
@@ -495,6 +525,9 @@ class EditBuildModal(discord.ui.Modal, title="Edit character build"):
         await report_interaction_error(interaction, error, "edit-build modal")
 
     async def on_submit(self, interaction: discord.Interaction) -> None:
+        if not await ensure_admin_context(interaction, "/editbuild"):
+            return
+
         raw_values = [
             self.dodge_input.value.strip(),
             self.crit_input.value.strip(),
@@ -837,16 +870,7 @@ async def ping(interaction: discord.Interaction) -> None:
 @app_commands.default_permissions(administrator=True)
 @app_commands.guilds(BUILD_ADMIN_GUILD_ID)
 async def addbuild(interaction: discord.Interaction) -> None:
-    if interaction.guild_id != BUILD_ADMIN_GUILD_ID:
-        await interaction.response.send_message(
-            "`/addbuild` can only be used in the designated server.", ephemeral=True
-        )
-        return
-
-    if not interaction.permissions.administrator:
-        await interaction.response.send_message(
-            "Administrator permission is required to add builds.", ephemeral=True
-        )
+    if not await ensure_admin_context(interaction, "/addbuild"):
         return
 
     await interaction.response.send_modal(AddBuildModal())
@@ -857,16 +881,7 @@ async def addbuild(interaction: discord.Interaction) -> None:
 @app_commands.guilds(BUILD_ADMIN_GUILD_ID)
 @app_commands.describe(card_id="Existing card ID")
 async def editbuild(interaction: discord.Interaction, card_id: str) -> None:
-    if interaction.guild_id != BUILD_ADMIN_GUILD_ID:
-        await interaction.response.send_message(
-            "`/editbuild` can only be used in the designated server.", ephemeral=True
-        )
-        return
-
-    if not interaction.permissions.administrator:
-        await interaction.response.send_message(
-            "Administrator permission is required to edit builds.", ephemeral=True
-        )
+    if not await ensure_admin_context(interaction, "/editbuild"):
         return
 
     card_id = card_id.strip()

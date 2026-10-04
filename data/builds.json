@@ -1,36 +1,6 @@
 {
   "characters": [
     {
-      "card_id": "1",
-      "name": "Test Card (placeholder)",
-      "image": "1.png",
-      "aliases": [
-        "Test Card (placeholder)"
-      ],
-      "hidden_potential": [
-        0,
-        0,
-        0
-      ],
-      "skill_orbs": "TEST DATA ONLY - replace with verified skill orbs.",
-      "source": "Test record only; not a real character or recommendation."
-    },
-    {
-      "card_id": "2",
-      "name": "Card 2",
-      "image": "default.png",
-      "aliases": [
-        "Card 2"
-      ],
-      "hidden_potential": [
-        12,
-        3,
-        6
-      ],
-      "skill_orbs": "Focus on Defense with additional, then dodge",
-      "source": "User-submitted via /addbuild"
-    },
-    {
       "card_id": "3",
       "name": "Card 3",
       "image": "default.png",
@@ -109,7 +79,8 @@
       "aliases": [
         "SEZA TUR INT SUPER JANEMBA",
         "Int Janemba",
-        "[Netherworld Demon] Super Janemba"
+        "[Netherworld Demon] Super Janemba",
+        "SEZA JANEMBA"
       ],
       "hidden_potential": [
         15,
@@ -125,7 +96,9 @@
       "image": "card_1004651.png",
       "aliases": [
         "SEZA TUR TEQ PERFECT CELL",
-        "[Surpassing All] Perfect Cell"
+        "[Surpassing All] Perfect Cell",
+        "SEZA Cell",
+        "SEZA Perfect Cell"
       ],
       "hidden_potential": [
         15,
@@ -141,7 +114,9 @@
       "image": "card_1003801.png",
       "aliases": [
         "SEZA TUR STR LSSJ BROLY",
-        "[Super Warrior of Destruction] Legendary Super Saiyan Broly"
+        "[Super Warrior of Destruction] Legendary Super Saiyan Broly",
+        "SEZA BROLY",
+        "SEZA LSSJ BROLY"
       ],
       "hidden_potential": [
         15,
@@ -157,7 +132,8 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR TEQ BEERUS",
-        "[Devastating Punishment] Beerus"
+        "[Devastating Punishment] Beerus",
+        "SEZA BEERUS"
       ],
       "hidden_potential": [
         15,
@@ -173,7 +149,9 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR STR SUPER GOGETA",
-        "[The Supreme Warrior] Super Gogeta"
+        "[The Supreme Warrior] Super Gogeta",
+        "SEZA Gogeta",
+        "SEZA SG"
       ],
       "hidden_potential": [
         15,
@@ -189,7 +167,10 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR STR SS4 GOKU",
-        "[Ultimate Super Saiyan] Super Saiyan 4 Goku"
+        "[Ultimate Super Saiyan] Super Saiyan 4 Goku",
+        "SEZA Goku",
+        "SEZA 4Ku",
+        "SEZA GT Goku"
       ],
       "hidden_potential": [
         15,
@@ -205,7 +186,9 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR STR SS3 VEGTA",
-        "[Warrior's True Value] Super Saiyan 3 Vegeta"
+        "[Warrior's True Value] Super Saiyan 3 Vegeta",
+        "SEZA SSJ3 Vegeta",
+        "SEZA Vegeta"
       ],
       "hidden_potential": [
         15,
@@ -221,7 +204,9 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR TEQ SS3 GOTENKS",
-        "[Grim Reaper of Justice's Rampage] Super Saiyan 3 Gotenks"
+        "[Grim Reaper of Justice's Rampage] Super Saiyan 3 Gotenks",
+        "SEZA Gotenks",
+        "SEZA SSJ3 Gotenks"
       ],
       "hidden_potential": [
         15,
@@ -237,7 +222,9 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR PHY KID BUU",
-        "[Heartless Destruction] Buu (Kid)"
+        "[Heartless Destruction] Buu (Kid)",
+        "SEZA Buu",
+        "SEZA Kid Buu"
       ],
       "hidden_potential": [
         15,
@@ -253,7 +240,9 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR PHY GOKU BLACK",
-        "[Dark Menace] Goku Black"
+        "[Dark Menace] Goku Black",
+        "SEZA Black",
+        "SEZA Goku Black"
       ],
       "hidden_potential": [
         15,
@@ -269,7 +258,10 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR AGL SSBKK GOKU",
-        "[Next-Level Strike] Super Saiyan God SS Goku"
+        "[Next-Level Strike] Super Saiyan God SS Goku",
+        "SEZA Godku",
+        "SEZA Goku",
+        "SEZA God Goku"
       ],
       "hidden_potential": [
         15,
@@ -285,7 +277,9 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR AGL SS3 GOKU",
-        "[Mystery Super Technique] Super Saiyan 3 Goku"
+        "[Mystery Super Technique] Super Saiyan 3 Goku",
+        "SEZA SSJ3 Goku",
+        "SEZA Goku"
       ],
       "hidden_potential": [
         15,
@@ -301,7 +295,10 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR PHY SSB VEGITO",
-        "[Azure Omnipotence] Super Saiyan God SS Vegito"
+        "[Azure Omnipotence] Super Saiyan God SS Vegito",
+        "SEZA VB",
+        "SEZA Vegito",
+        "SEZA Vegito Blue"
       ],
       "hidden_potential": [
         10,
@@ -319,7 +316,8 @@
         "SEZA TUR PHY FINAL FORM FRIEZA",
         "FF FP FRIEZA",
         "FFFP",
-        "[Emperor's Devotion] Frieza (Full Power)"
+        "[Emperor's Devotion] Frieza (Full Power)",
+        "SEZA Frieza"
       ],
       "hidden_potential": [
         15,
@@ -335,7 +333,9 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR INT ULTIMATE GOHAN",
-        "[Ultimate Power Surge} Ultimate Gohan"
+        "[Ultimate Power Surge} Ultimate Gohan",
+        "SEZA Ultimate Gohan",
+        "SEZA Gohan"
       ],
       "hidden_potential": [
         15,
@@ -353,7 +353,9 @@
         "SEZA TUR AGL SSR GOKU BLACK",
         "Rose",
         "Rosé",
-        "[Rose Stained Super Saiyan] Goku Black (Super Saiyan Rosé)"
+        "[Rose Stained Super Saiyan] Goku Black (Super Saiyan Rosé)",
+        "SEZA Rose",
+        "SEZA Rosé"
       ],
       "hidden_potential": [
         15,
@@ -369,7 +371,9 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR AGL SS4 VEGETA",
-        "[Unparalleled Super Saiyan] Super Saiyan 4 Vegeta"
+        "[Unparalleled Super Saiyan] Super Saiyan 4 Vegeta",
+        "SEZA SSJ4 Vegeta",
+        "SEZA Vegeta"
       ],
       "hidden_potential": [
         15,
@@ -385,7 +389,10 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR AGL SUPER VEGITO",
-        "[Unparalleled Golden Ki] Super Vegito"
+        "[Unparalleled Golden Ki] Super Vegito",
+        "SEZA SV",
+        "SEZA Vegito",
+        "SEZA Super Vegito"
       ],
       "hidden_potential": [
         15,
@@ -401,7 +408,9 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR INT BUUHAN",
-        "[Countdown to Despair] Majin Buu (Ultimate Gohan)"
+        "[Countdown to Despair] Majin Buu (Ultimate Gohan)",
+        "SEZA Buuhan",
+        "SEZA Buu"
       ],
       "hidden_potential": [
         15,
@@ -417,7 +426,8 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR INT SSB VEGETA",
-        "[Passion of the Warrior Race] Super Saiyan God SS Vegeta"
+        "[Passion of the Warrior Race] Super Saiyan God SS Vegeta",
+        "SEZA Vegeta"
       ],
       "hidden_potential": [
         15,
@@ -433,7 +443,8 @@
       "image": "default.png",
       "aliases": [
         "SEZA TUR OMEGA SHENRON",
-        "[Hopeless Minus Energy] Omega Shenron"
+        "[Hopeless Minus Energy] Omega Shenron",
+        "SEZA Omega"
       ],
       "hidden_potential": [
         15,
@@ -450,7 +461,8 @@
       "aliases": [
         "SEZA TUR INT UI GOKU",
         "Sign",
-        "[Transdimensional Instinct] Goku (Ultra Instinct -Sign-)"
+        "[Transdimensional Instinct] Goku (Ultra Instinct -Sign-)",
+        "SEZA UI"
       ],
       "hidden_potential": [
         15,
@@ -467,7 +479,8 @@
       "aliases": [
         "SEZA TUR PHY FINAL FORM COOLER",
         "FF COOLER",
-        "[Open the Gates of Hell] Cooler (Final Form)"
+        "[Open the Gates of Hell] Cooler (Final Form)",
+        "STR Cooler"
       ],
       "hidden_potential": [
         15,
