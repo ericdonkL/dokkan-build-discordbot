@@ -1,21 +1,5 @@
 # Dokkan Build Bot
 
-`discord.py` Dokkan build bot with `/ping`, `/build`, `/addbuild`, and `/editbuild` slash commands. Build records are stored in `data/builds.json`.
-
-## Run on Windows
-
-1. Create a bot application in the [Discord Developer Portal](https://discord.com/developers/applications) and copy its bot token.
-2. Invite it to your server with the `bot` and `applications.commands` scopes.
-3. Copy `.env.example` to `.env` and set `DISCORD_TOKEN`. Keep `.env` private; it is ignored by Git.
-4. Optionally set `DISCORD_GUILD_ID` to your test server's ID. Commands sync globally for every server where the bot is installed, and also sync to this test server for faster development updates.
-5. In PowerShell, run:
-
-   ```powershell
-   .\.venv\Scripts\Activate.ps1
-   python -m pip install -r requirements.txt
-   python main.py
-   ```
-
 Try `/ping` in the server. `/build name:<name>` searches saved aliases only. An exact card-name match shows the build directly; every other successful search opens an ephemeral button picker, even if only one card matched. Picker buttons show card names and results are paginated when needed. `/addbuild` and `/editbuild` are restricted to server administrators. `/addbuild` collects card ID, display name, and comma-separated aliases, then opens a follow-up form for Dodge, Crit, Additional, and Skill Orbs. `/editbuild card_id:<id>` edits a record only when that exact card ID already exists, with its current hipo values and Skill Orbs prefilled. The display name is automatically included in aliases.
 
 When `DISCORD_GUILD_ID` is set, startup syncs commands globally and to that test server. The guild commands update quickly during development, while other installed servers receive the global commands after Discord propagates them.
