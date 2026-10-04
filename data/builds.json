@@ -491,6 +491,414 @@
       ],
       "skill_orbs": "Focus on raw DEF and Dodge then Additional with orbs.",
       "source": ".batman.616"
+    },
+    {
+      "card_id": "1034071",
+      "name": "[Release of Mighty Power] Super Saiyan Gohan (Youth)",
+      "image": "card_1034071.png",
+      "aliases": [
+        "LR STR SUPER SAIYAN GOHAN",
+        "LR SSJ Gohan",
+        "LR Gohan",
+        "STR Gohan",
+        "[Release of Mighty Power] Super Saiyan Gohan (Youth)"
+      ],
+      "hidden_potential": [
+        9,
+        0,
+        12
+      ],
+      "skill_orbs": "Focus on raw DEF/ATK and Additional then Dodge with orbs.",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1034121",
+      "name": "[Mastery of Perfected Power] Perfect Cell",
+      "image": "card_1034121.png",
+      "aliases": [
+        "LR TEQ PERFECT CELL",
+        "LR Cell",
+        "TEQ Cell",
+        "TEQ Perfect Cell",
+        "[Mastery of Perfected Power] Perfect Cell"
+      ],
+      "hidden_potential": [
+        9,
+        0,
+        12
+      ],
+      "skill_orbs": "Focus on raw ATK and Additional / Dodge with orbs.",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1034031",
+      "name": "[Furious Fighter's Immense Power] Super Saiyan Goku",
+      "image": "card_1034031.png",
+      "aliases": [
+        "LR AGL SUPER SAIYAN GOKU",
+        "LR SSJ Goku",
+        "AGL NAMEKU",
+        "AGL Goku",
+        "LR AGL Goku",
+        "LR AGL NAMEKU",
+        "[Furious Fighter's Immense Power] Super Saiyan Goku"
+      ],
+      "hidden_potential": [
+        12,
+        0,
+        9
+      ],
+      "skill_orbs": "Focus on raw def & atk, followed by dodge and add with orbs.\n\n\nYou can lean slightly more into dodge because dodge adds consistency in base and will make him age a little better post transformation, but it can interfere with his damage post transformation, which is why I personally lean towards add because of that. I lean towards def with equips (especially at lower dupe levels) because it makes his tanking much more consistent, but atk is also very valuable. Crit is mostly irrelevant because he has attacks effective against all types in both forms and 50% crit post transformation after being hit.",
+      "source": ".batman.616 and @eepy.ashley"
+    },
+    {
+      "card_id": "1033971",
+      "name": "[Supreme Ruler's Vicious Power] Frieza (Final Form)",
+      "image": "card_1033971.png",
+      "aliases": [
+        "LR PHY FRIEZA (FINAL FORM)",
+        "LR FRIEZA",
+        "LR FINAL FORM FRIEZA",
+        "LR FF FRIEZA",
+        "PHY LR Frieza",
+        "PHY FRIEZA",
+        "[Supreme Ruler's Vicious Power] Frieza (Final Form)"
+      ],
+      "hidden_potential": [
+        9,
+        0,
+        12
+      ],
+      "skill_orbs": "Focus on raw DEF, followed by atk, additional, and dodge with orbs.\n\n\nAlmost any mix of dodge and add works (I think 12 add + 9 dodge will be best for him, though). Dodge will make him age slightly better by giving him an extra safety net, while additional will make his damage output better; lean into whichever outcome you prefer. def is going to make his tanking even more consistent(especially at a low dupe level), and atk will help make his already very good damage better. He has attacks effective against all types in base and gains 20% crit within turn every time he’s hit post transformation, so crit isn’t very useful. Gaining crit chance within the turn on being hit can make dodge counter intuitive sometimes, which is the primary reason I lean slightly towards add in the build.",
+      "source": "eepy.ashley"
+    },
+    {
+      "card_id": "1034381",
+      "name": "[Cataclysmic Calamity] Cell Max",
+      "image": "card_1034381.png",
+      "aliases": [
+        "LR AGL CELL MAX",
+        "LR CELL MAX",
+        "AGL CELL MAX",
+        "[Cataclysmic Calamity] Cell Max"
+      ],
+      "hidden_potential": [
+        9,
+        0,
+        12
+      ],
+      "skill_orbs": "Focus on raw DEF/ATK and Dodge with orbs.",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1034341",
+      "name": "[Blinding Radiance of the Decisive Strike] Gohan (Beast)",
+      "image": "card_1034341.png",
+      "aliases": [
+        "LR TEQ BEAST GOHAN",
+        "TEQ BEAST",
+        "LR BEAST GOHAN",
+        "BEAST GOHAN",
+        "[Blinding Radiance of the Decisive Strike] Gohan (Beast)"
+      ],
+      "hidden_potential": [
+        0,
+        15,
+        6
+      ],
+      "skill_orbs": "Focus on raw ATK/DEF and Crit with orbs.",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1033941",
+      "name": "[Supreme Tree of Might] Turles",
+      "image": "card_1033941.png",
+      "aliases": [
+        "LR TEQ TURLES",
+        "LR TURLES",
+        "[Supreme Tree of Might] Turles"
+      ],
+      "hidden_potential": [
+        12,
+        0,
+        9
+      ],
+      "skill_orbs": "Focus on raw ATK/DEF and Additional/Dodge",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1032771",
+      "name": "[Limit-Shattering Saiyan] Goku",
+      "image": "card_1032771.png",
+      "aliases": [
+        "LR TEQ NAMEK GOKU",
+        "TEQ NAMEKU",
+        "F2P",
+        "Frontier",
+        "F2P LR",
+        "TEQ GOKU",
+        "[Limit-Shattering Saiyan] Goku"
+      ],
+      "hidden_potential": [
+        9,
+        6,
+        6
+      ],
+      "skill_orbs": "Even split between all 3.\n\nFocus on raw ATK with orbs.",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1021971",
+      "name": "[True Heroes] Tapion & Minotia",
+      "image": "card_1021971.png",
+      "aliases": [
+        "LR STR TAPION AND MINOTIA",
+        "wait",
+        "[True Heroes] Tapion & Minotia"
+      ],
+      "hidden_potential": [
+        0,
+        0,
+        0
+      ],
+      "skill_orbs": "Wait for EZA",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1027581",
+      "name": "[Secret Weapon of Confidence] Pilaf & Shu & Mai",
+      "image": "card_1027581.png",
+      "aliases": [
+        "LR AGL PILAF",
+        "wait",
+        "[Secret Weapon of Confidence] Pilaf & Shu & Mai"
+      ],
+      "hidden_potential": [
+        0,
+        0,
+        0
+      ],
+      "skill_orbs": "Wait for EZA",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1027601",
+      "name": "[Unity Forged in Another World] Super Saiyan Trunks (Teen) & Super Saiyan Broly",
+      "image": "card_1027601.png",
+      "aliases": [
+        "LR TEQ SS TRUNKS AND BROLY",
+        "TROLY",
+        "TEQ TRUNKS & BROLY",
+        "TRUNKS BROLY",
+        "wait",
+        "[Unity Forged in Another World] Super Saiyan Trunks (Teen) & Super Saiyan Broly"
+      ],
+      "hidden_potential": [
+        12,
+        0,
+        9
+      ],
+      "skill_orbs": "Wait for EZA",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1027461",
+      "name": "[Magnificent Love That Saves the Universe] Ribrianne & Kakunsa & Rozie",
+      "image": "card_1027461.png",
+      "aliases": [
+        "LR TEQ RIBIRANNE KAKUNSA AND ROZIE",
+        "wait",
+        "[Magnificent Love That Saves the Universe] Ribrianne & Kakunsa & Rozie"
+      ],
+      "hidden_potential": [
+        0,
+        0,
+        0
+      ],
+      "skill_orbs": "Wait for EZA",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1027041",
+      "name": "[The Ultimate Shadow Dragon] Omega Shenron",
+      "image": "card_1027041.png",
+      "aliases": [
+        "LR AGL OMEGA SHENRON",
+        "AGL OMEGA",
+        "[The Ultimate Shadow Dragon] Omega Shenron",
+        "wait"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Wait for EZA",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1026901",
+      "name": "[Greatest Evolution of Power] Super Saiyan 4 Goku",
+      "image": "card_1026901.png",
+      "aliases": [
+        "LR INT SS4 GOKU",
+        "SSJ4 GOKU",
+        "LR INT SSj4 Goku",
+        "INT 4ku",
+        "LR 4ku",
+        "[Greatest Evolution of Power] Super Saiyan 4 Goku",
+        "wait"
+      ],
+      "hidden_potential": [
+        0,
+        0,
+        0
+      ],
+      "skill_orbs": "Wait for EZA",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1026821",
+      "name": "[Light That Defends the Green Planet] Goku",
+      "image": "card_1026821.png",
+      "aliases": [
+        "LR INT GOKU",
+        "TREEKU",
+        "TOM Goku",
+        "WT",
+        "[Light That Defends the Green Planet] Goku",
+        "wait"
+      ],
+      "hidden_potential": [
+        0,
+        15,
+        6
+      ],
+      "skill_orbs": "Crit build for WT\nWait for EZA",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1026731",
+      "name": "[Sinister Genius Scientist] Dr. Wheelo",
+      "image": "card_1026731.png",
+      "aliases": [
+        "LR AGL DR. WHEELO",
+        "DR WHEELO",
+        "F2P",
+        "F2P LR",
+        "[Sinister Genius Scientist] Dr. Wheelo",
+        "PRIME BATTLE DR WHEELO",
+        "PRIME BATTLE WHEELO",
+        "PB WHEELO",
+        "PB DR WHEELO",
+        "wait"
+      ],
+      "hidden_potential": [
+        0,
+        0,
+        0
+      ],
+      "skill_orbs": "Wait for EZA",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1027331",
+      "name": "[Indomitable Fighter] Super Saiyan Gohan (Future)",
+      "image": "card_1027331.png",
+      "aliases": [
+        "LR STR FUTURE GOHAN",
+        "FUTUREHAN",
+        "wait",
+        "[Indomitable Fighter] Super Saiyan Gohan (Future)"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Wait for EZA",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1027291",
+      "name": "[Hope at the End of a Deadly Showdown] Super Saiyan Trunks (Future)",
+      "image": "card_1027291.png",
+      "aliases": [
+        "LR PHY SSJ SWORD OF HOPE TRUNKS",
+        "LR PHY SS SWORD OF HOPE TRUNKS",
+        "SOH TRUNKS",
+        "wait",
+        "[Hope at the End of a Deadly Showdown] Super Saiyan Trunks (Future)"
+      ],
+      "hidden_potential": [
+        0,
+        0,
+        0
+      ],
+      "skill_orbs": "Wait for EZA",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1027221",
+      "name": "[Infinite Sanctuary] Fusion Zamasu",
+      "image": "card_1027221.png",
+      "aliases": [
+        "LR TEQ MERGED ZAMASU",
+        "CORRUPTED ZAMASU",
+        "CORRUPTED MERGED ZAMASU",
+        "CMZ",
+        "wait",
+        "[Infinite Sanctuary] Fusion Zamasu"
+      ],
+      "hidden_potential": [
+        0,
+        0,
+        0
+      ],
+      "skill_orbs": "Wait for EZA",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1027121",
+      "name": "[All-Out Final Battle] Super Saiyan God SS Goku &  Super Saiyan God SS Vegeta",
+      "image": "card_1027121.png",
+      "aliases": [
+        "LR AGL SSB GOKU AND VEGETA",
+        "LR AGL SSJB GOKU AND VEGETA",
+        "LR AGL Vegito Blue",
+        "LR AGL VB",
+        "we saiyans have no limits",
+        "fraud",
+        "frauds",
+        "wait",
+        "[All-Out Final Battle] Super Saiyan God SS Goku &  Super Saiyan God SS Vegeta"
+      ],
+      "hidden_potential": [
+        0,
+        0,
+        0
+      ],
+      "skill_orbs": "Wait for EZA",
+      "source": ".batman.616"
+    },
+    {
+      "card_id": "1025651",
+      "name": "[Extreme Vengeful Energy] Hatchiyack (Giant Form)",
+      "image": "card_1025651.png",
+      "aliases": [
+        "LR TEQ HATCHIYACK",
+        "Battlefield",
+        "F2P",
+        "wait",
+        "[Extreme Vengeful Energy] Hatchiyack (Giant Form)"
+      ],
+      "hidden_potential": [
+        0,
+        0,
+        0
+      ],
+      "skill_orbs": "Wait for EZA",
+      "source": ".batman.616"
     }
   ]
 }
