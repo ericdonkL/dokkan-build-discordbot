@@ -29,3 +29,6 @@ dist/
 
 # Local logs
 *.log
+
+# Old files
+old_main.py

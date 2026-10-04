@@ -49,7 +49,7 @@
     },
     {
       "card_id": "1034201",
-      "name": "Pinnacle of the Fierce Battle Super Saiyan 3 Goku",
+      "name": "[Pinnacle of the Fierce Battle] Super Saiyan 3 Goku",
       "image": "1034201.png",
       "aliases": [
         "INT LR SSJ3 Goku",
@@ -62,11 +62,11 @@
         9
       ],
       "skill_orbs": "Defense with dodge then additional",
-      "source": "User-submitted via /addbuild"
+      "source": "scurr"
     },
     {
       "card_id": "1027681",
-      "name": "Growth through Predation Android #21 (Transformed, Evil)",
+      "name": "[Growth through Predation] Android #21 (Transformed, Evil)",
       "image": "default.png",
       "aliases": [
         "PHY 21",
@@ -82,7 +82,7 @@
         0
       ],
       "skill_orbs": "Defense with Crit, then dodge",
-      "source": "User-submitted via /addbuild"
+      "source": "scurr"
     },
     {
       "card_id": "1032461",
