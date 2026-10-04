@@ -19,5 +19,3 @@ Put card images in `thumbs/` with `card_` followed by the card ID, such as `card
 Build output is a single embed with the card art as a small thumbnail and Hidden Potential values in one line. The bot fetches `dodge`, `crit`, and `add` from testing guild `901246915881074709`, then uses them in build results across servers. The bot must be a member of that source guild and have **Use External Emojis** in the server where the result is posted; otherwise it falls back to `Dodge: X, Crit: Y, Add: Z`. `/addbuild` accepts comma-separated values such as `3, 20, 12` and stores them as `[3, 20, 12]`.
 
 The build embed footer displays `Build from: @<display name>` as plain text, not a user mention. The bot cannot reconstruct submitter names for older records that predate this change. The bot supports case-insensitive exact and partial alias matches. Card IDs are not searched directly. Recommendations should be sourced and identified as community advice where applicable.
-
-Do not share or commit your bot token.
