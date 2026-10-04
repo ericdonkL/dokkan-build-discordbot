@@ -1,6 +1,5 @@
 .env
 .env.*
-!.env.example
 
 .venv/
 venv/
@@ -32,3 +31,4 @@ dist/
 
 # Old files
 old_main.py
+.github/
