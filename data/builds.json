@@ -1543,6 +1543,7 @@
         "STR VB",
         "VEGITOLESS",
         "STR BLUE BOYS",
+        "STR BLUE DUO",
         "[Furious Final Battle in the Future] Super Saiyan God SS Goku + Super Saiyan God SS Vegeta"
       ],
       "hidden_potential": [
@@ -2454,6 +2455,23 @@
       ],
       "skill_orbs": "I would focus primarily on whichever you decided to lean into with the build and then raw stats(both atk and def).\n\n\nRationale: additional can make his quite good damage output in slot 3 after his first appearance(assuming you get hit) even better, and it makes his tanking more consistent, raw stats do the same thing, and dodge can make getting that atk buff on being hit harder. Crit is covered by having a namek saga ally in the turn.",
       "source": "eepy.ashley"
+    },
+    {
+      "card_id": "1010901",
+      "name": "[Extraordinary Friendship] Hercule",
+      "image": "card_1010901.png",
+      "aliases": [
+        "SEZA LR TEQ Hercule",
+        "F2P",
+        "[Extraordinary Friendship] Hercule"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Dodge with Def, low priority because he is a f2p unit",
+      "source": "scurr"
     }
   ]
 }
