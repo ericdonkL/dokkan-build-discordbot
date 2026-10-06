@@ -2472,6 +2472,24 @@
       ],
       "skill_orbs": "Dodge with Def, low priority because he is a f2p unit",
       "source": "scurr"
+    },
+    {
+      "card_id": "1032711",
+      "name": "[Luud Cult's God of Destruction] Luud",
+      "image": "card_1032711.png",
+      "aliases": [
+        "LR INT LUUD",
+        "Battlefield",
+        "f2p",
+        "[Luud Cult's God of Destruction] Luud"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on Dodge with defense",
+      "source": "scurrx"
     }
   ]
 }

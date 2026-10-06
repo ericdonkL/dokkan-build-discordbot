@@ -42,8 +42,8 @@ IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".webp")
 # Server that hosts the Hidden Potential emojis (dodge / crit / add).
 HIPO_EMOJI_GUILD_ID = _env_int("HIPO_EMOJI_GUILD_ID", 901246915881074709)
 # /addbuild and /editbuild are only accepted when typed in this server.
-#BUILD_ADMIN_GUILD_ID = _env_int("BUILD_ADMIN_GUILD_ID", 901246915881074709)
-BUILD_ADMIN_GUILD_ID = _env_int("BUILD_ADMIN_GUILD_ID", 1146325637422919721)
+BUILD_ADMIN_GUILD_ID = _env_int("BUILD_ADMIN_GUILD_ID", 901246915881074709) #DEBUG SERVER
+#BUILD_ADMIN_GUILD_ID = _env_int("BUILD_ADMIN_GUILD_ID", 1146325637422919721) #VILLUHFY SERVER
 # Optional development server: commands are synced there instantly.
 DEVELOPMENT_GUILD_ID = _env_int("DISCORD_GUILD_ID")
 # Command syncing is rate limited; set SYNC_COMMANDS_ON_START=0 to skip it.
@@ -417,7 +417,7 @@ class AddBuildHipoModal(discord.ui.Modal, title="Hidden Potential"):
             "hidden_potential": [int(value) for value in raw_values],
             "skill_orbs": skill_orbs,
             #"source": ".batman.616",
-            "source": interaction.user.display_name,
+            "source": interaction.user.name,
         }
         try:
             await save_character_build(build)
@@ -758,7 +758,7 @@ def create_build_embed(
         skill_orbs = skill_orbs[:1021] + "..."
     embed.add_field(name="Skill Orbs", value=skill_orbs, inline=False)
     display_name = discord.utils.escape_mentions(build["source"])
-    embed.set_footer(text=f"Build from: {display_name}")
+    embed.set_footer(text=f"Build from: @{display_name}")
     return embed
 
 
