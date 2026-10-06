@@ -42,8 +42,8 @@ IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".webp")
 # Server that hosts the Hidden Potential emojis (dodge / crit / add).
 HIPO_EMOJI_GUILD_ID = _env_int("HIPO_EMOJI_GUILD_ID", 901246915881074709)
 # /addbuild and /editbuild are only accepted when typed in this server.
-#BUILD_ADMIN_GUILD_ID = _env_int("BUILD_ADMIN_GUILD_ID", 901246915881074709) #TEST SERVER
-BUILD_ADMIN_GUILD_ID = _env_int("BUILD_ADMIN_GUILD_ID", 1146325637422919721) #VILLUHFY SERVER
+#BUILD_ADMIN_GUILD_ID = _env_int("BUILD_ADMIN_GUILD_ID", 901246915881074709)
+BUILD_ADMIN_GUILD_ID = _env_int("BUILD_ADMIN_GUILD_ID", 1146325637422919721)
 # Optional development server: commands are synced there instantly.
 DEVELOPMENT_GUILD_ID = _env_int("DISCORD_GUILD_ID")
 # Command syncing is rate limited; set SYNC_COMMANDS_ON_START=0 to skip it.
