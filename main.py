@@ -42,13 +42,14 @@ IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".webp")
 # Server that hosts the Hidden Potential emojis (dodge / crit / add).
 HIPO_EMOJI_GUILD_ID = _env_int("HIPO_EMOJI_GUILD_ID", 901246915881074709)
 # /addbuild and /editbuild are only accepted when typed in this server.
-BUILD_ADMIN_GUILD_ID = _env_int("BUILD_ADMIN_GUILD_ID", 901246915881074709)
+#BUILD_ADMIN_GUILD_ID = _env_int("BUILD_ADMIN_GUILD_ID", 901246915881074709) #TEST SERVER
+BUILD_ADMIN_GUILD_ID = _env_int("BUILD_ADMIN_GUILD_ID", 1146325637422919721) #VILLUHFY SERVER
 # Optional development server: commands are synced there instantly.
 DEVELOPMENT_GUILD_ID = _env_int("DISCORD_GUILD_ID")
 # Command syncing is rate limited; set SYNC_COMMANDS_ON_START=0 to skip it.
 SYNC_COMMANDS_ON_START = _env_flag("SYNC_COMMANDS_ON_START", True)
 # Whether /build results are only visible to the person who ran the command.
-BUILD_RESULTS_EPHEMERAL = False
+BUILD_RESULTS_EPHEMERAL = True
 
 # Serializes the load -> modify -> persist cycle. File I/O runs in worker
 # threads (asyncio.to_thread), so other commands can run between those steps;
@@ -415,8 +416,8 @@ class AddBuildHipoModal(discord.ui.Modal, title="Hidden Potential"):
             **self.draft,
             "hidden_potential": [int(value) for value in raw_values],
             "skill_orbs": skill_orbs,
-            "source": ".batman.616",
-            #"source": interaction.user.display_name,
+            #"source": ".batman.616",
+            "source": interaction.user.display_name,
         }
         try:
             await save_character_build(build)
