@@ -471,7 +471,7 @@ class AddBuildModal(discord.ui.Modal, title="Add character build"):
         max_length=100,
     )
     aliases_input = discord.ui.TextInput(
-        label="Aliases (separate with commas)",
+        label="Aliases/Community Names (separate by commas)",
         placeholder="AGL Namek Goku, Nameku, Super Saiyan Goku",
         max_length=1000,
     )
@@ -529,13 +529,17 @@ class AddBuildModal(discord.ui.Modal, title="Add character build"):
 
 
 class AddBuildHipoModal(discord.ui.Modal, title="Hidden Potential"):
-    dodge_input = discord.ui.TextInput(label="Dodge", placeholder="12", max_length=3)
-    crit_input = discord.ui.TextInput(label="Crit", placeholder="3", max_length=3)
+    dodge_input = discord.ui.TextInput(
+        label="Dodge", placeholder="12", default="0", required=False, max_length=3
+    )
+    crit_input = discord.ui.TextInput(
+        label="Crit", placeholder="3", default="0", required=False, max_length=3
+    )
     additional_input = discord.ui.TextInput(
-        label="Additional", placeholder="6", max_length=3
+        label="Additional", placeholder="6", default="0", required=False, max_length=3
     )
     skill_orbs_input = discord.ui.TextInput(
-        label="Skill orbs",
+        label="Skill Orbs and Notes",
         style=discord.TextStyle.paragraph,
         max_length=1000,
     )
@@ -554,10 +558,11 @@ class AddBuildHipoModal(discord.ui.Modal, title="Hidden Potential"):
         if not await ensure_admin_context(interaction, "/addbuild"):
             return
 
+        # Blank fields count as 0.
         raw_values = [
-            self.dodge_input.value.strip(),
-            self.crit_input.value.strip(),
-            self.additional_input.value.strip(),
+            self.dodge_input.value.strip() or "0",
+            self.crit_input.value.strip() or "0",
+            self.additional_input.value.strip() or "0",
         ]
         if any(not value.isascii() or not value.isdigit() for value in raw_values):
             await interaction.response.send_message(
