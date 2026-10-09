@@ -811,6 +811,30 @@ async def send_build_result(
 
 
 class DokkanBot(commands.Bot):
+    async def on_interaction(self, interaction: discord.Interaction) -> None:
+        """Log every slash command invocation to the console."""
+        if interaction.type is not discord.InteractionType.application_command:
+            return
+
+        data = interaction.data or {}
+        command_name = interaction.command.qualified_name if interaction.command else data.get("name", "unknown")
+        options = ", ".join(
+            f"{key}={value!r}" for key, value in dict(interaction.namespace).items()
+        )
+        if interaction.guild_id:
+            location = f"server {interaction.guild.name if interaction.guild else 'unknown'} ({interaction.guild_id})"
+        else:
+            location = "DMs"
+
+        logger.info(
+            "Command /%s used by %s (%s) in %s%s",
+            command_name,
+            interaction.user,
+            interaction.user.id,
+            location,
+            f" with options: {options}" if options else "",
+        )
+
     async def setup_hook(self) -> None:
         if not SYNC_COMMANDS_ON_START:
             logger.info("Skipping command sync (SYNC_COMMANDS_ON_START is off)")
