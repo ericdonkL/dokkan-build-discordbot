@@ -50,6 +50,8 @@ def _env_flag(name: str, default: bool) -> bool:
 
 PROJECT_DIR = Path(__file__).parent
 BUILD_DATA_PATH = PROJECT_DIR / "data" / "builds.json"
+# Channels registered with /registerchannel, stored as {"<guild id>": [channel ids]}.
+CHANNEL_DATA_PATH = PROJECT_DIR / "data" / "channels.json"
 THUMBS_DIR = PROJECT_DIR / "thumbs"
 IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".webp")
 
@@ -76,6 +78,8 @@ BUILD_RESULTS_EPHEMERAL = False
 # the lock keeps two writers from overwriting each other's changes.
 BUILD_LOCK = asyncio.Lock()
 BUILD_LOCK = asyncio.Lock()
+# Same idea for the registered-channel file.
+CHANNEL_LOCK = asyncio.Lock()
 
 
 class CharacterBuild(TypedDict):
@@ -316,6 +320,143 @@ async def update_character_build(
                 return
 
         raise LookupError(f"No build exists for card ID {card_id}")
+
+
+def load_registered_channels() -> dict[str, list[int]]:
+    """Read the per-server list of channels where /build is allowed.
+
+    A missing file just means nothing has been registered yet. A file that exists
+    but cannot be parsed raises, so a write never overwrites data it could not read.
+    """
+    try:
+        raw = CHANNEL_DATA_PATH.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return {}
+    except OSError as error:
+        raise BuildDataError("Could not read registered channels") from error
+
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError as error:
+        raise BuildDataError("Registered channel data is not valid JSON") from error
+
+    if not isinstance(data, dict):
+        raise BuildDataError("Registered channel data must be an object")
+
+    channels: dict[str, list[int]] = {}
+    for guild_id, channel_ids in data.items():
+        if not isinstance(channel_ids, list) or not all(
+            isinstance(channel_id, int) and not isinstance(channel_id, bool)
+            for channel_id in channel_ids
+        ):
+            raise BuildDataError(f"Invalid channel list for server {guild_id}")
+        channels[str(guild_id)] = channel_ids
+    return channels
+
+
+def persist_registered_channels(channels: dict[str, list[int]]) -> None:
+    temporary_path = CHANNEL_DATA_PATH.with_suffix(".json.tmp")
+    try:
+        CHANNEL_DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
+        temporary_path.write_text(
+            json.dumps(channels, indent=2) + "\n", encoding="utf-8"
+        )
+        os.replace(temporary_path, CHANNEL_DATA_PATH)
+    except OSError:
+        temporary_path.unlink(missing_ok=True)
+        raise
+
+
+async def register_build_channel(guild_id: int, channel_id: int) -> tuple[bool, list[int]]:
+    """Add a channel. Returns (newly added, all registered channels for the server)."""
+    async with CHANNEL_LOCK:
+        channels = await asyncio.to_thread(load_registered_channels)
+        guild_channels = channels.setdefault(str(guild_id), [])
+        if channel_id in guild_channels:
+            return False, list(guild_channels)
+
+        guild_channels.append(channel_id)
+        await asyncio.to_thread(persist_registered_channels, channels)
+        return True, list(guild_channels)
+
+
+async def unregister_build_channel(guild_id: int, channel_id: int) -> tuple[bool, list[int]]:
+    """Remove a channel. Returns (was registered, channels still registered)."""
+    async with CHANNEL_LOCK:
+        channels = await asyncio.to_thread(load_registered_channels)
+        guild_channels = channels.get(str(guild_id), [])
+        if channel_id not in guild_channels:
+            return False, list(guild_channels)
+
+        guild_channels.remove(channel_id)
+        if not guild_channels:
+            channels.pop(str(guild_id), None)
+        await asyncio.to_thread(persist_registered_channels, channels)
+        return True, list(guild_channels)
+
+
+async def ensure_build_channel_allowed(interaction: discord.Interaction) -> bool:
+    """Refuse /build outside the channels registered for this server.
+
+    A server with no registered channels is unrestricted, so /build keeps working
+    until an admin runs /registerchannel. Direct messages are not restricted.
+    """
+    if interaction.guild_id is None:
+        return True
+
+    try:
+        channels = await asyncio.to_thread(load_registered_channels)
+    except BuildDataError:
+        logger.exception("Unable to load registered channel data")
+        await interaction.response.send_message(
+            "Channel settings are unavailable right now.", ephemeral=True
+        )
+        return False
+
+    allowed = channels.get(str(interaction.guild_id), [])
+    if not allowed:
+        return True
+
+    # A thread counts as part of the channel it was created in.
+    current_ids = {interaction.channel_id}
+    if isinstance(interaction.channel, discord.Thread) and interaction.channel.parent_id:
+        current_ids.add(interaction.channel.parent_id)
+    if current_ids & set(allowed):
+        return True
+
+    mentions = ", ".join(f"<#{channel_id}>" for channel_id in allowed)
+    await interaction.response.send_message(
+        f"`/build` can only be used in these channels: {mentions}", ephemeral=True
+    )
+    return False
+
+
+async def ensure_guild_admin(interaction: discord.Interaction, label: str) -> bool:
+    """Allow a command only for administrators inside a server (any server)."""
+    if interaction.guild_id is None:
+        await interaction.response.send_message(
+            f"`{label}` can only be used in a server.", ephemeral=True
+        )
+        return False
+
+    if not interaction.permissions.administrator:
+        await interaction.response.send_message(
+            f"Administrator permission is required to use `{label}`.", ephemeral=True
+        )
+        return False
+
+    return True
+
+
+def resolve_target_channel_id(
+    interaction: discord.Interaction, channel: discord.TextChannel | None
+) -> int | None:
+    """The chosen channel, or the current one (a thread resolves to its parent)."""
+    if channel is not None:
+        return channel.id
+    if isinstance(interaction.channel, discord.Thread) and interaction.channel.parent_id:
+        return interaction.channel.parent_id
+    return interaction.channel_id
 
 
 class AddBuildModal(discord.ui.Modal, title="Add character build"):
@@ -963,9 +1104,94 @@ async def editbuild(interaction: discord.Interaction, card_id: str) -> None:
     await interaction.response.send_modal(EditBuildModal(existing_build))
 
 
+@bot.tree.command(
+    name="registerchannel", description="Allow /build to be used in a channel on this server"
+)
+@app_commands.guild_only()
+@app_commands.default_permissions(administrator=True)
+@app_commands.describe(channel="Channel to allow (defaults to the current channel)")
+async def registerchannel(
+    interaction: discord.Interaction, channel: discord.TextChannel | None = None
+) -> None:
+    if not await ensure_guild_admin(interaction, "/registerchannel"):
+        return
+
+    channel_id = resolve_target_channel_id(interaction, channel)
+    if channel_id is None or interaction.guild_id is None:
+        await interaction.response.send_message(
+            "Could not work out which channel to register.", ephemeral=True
+        )
+        return
+
+    try:
+        added, registered = await register_build_channel(interaction.guild_id, channel_id)
+    except (BuildDataError, OSError):
+        logger.exception("Unable to save registered channel")
+        await interaction.response.send_message(
+            "Could not save the channel right now.", ephemeral=True
+        )
+        return
+
+    mentions = ", ".join(f"<#{registered_id}>" for registered_id in registered)
+    status = "is now registered" if added else "was already registered"
+    await interaction.response.send_message(
+        f"<#{channel_id}> {status}. `/build` can only be used in: {mentions}",
+        ephemeral=True,
+    )
+
+
+@bot.tree.command(
+    name="unregisterchannel", description="Stop allowing /build in a channel on this server"
+)
+@app_commands.guild_only()
+@app_commands.default_permissions(administrator=True)
+@app_commands.describe(channel="Channel to remove (defaults to the current channel)")
+async def unregisterchannel(
+    interaction: discord.Interaction, channel: discord.TextChannel | None = None
+) -> None:
+    if not await ensure_guild_admin(interaction, "/unregisterchannel"):
+        return
+
+    channel_id = resolve_target_channel_id(interaction, channel)
+    if channel_id is None or interaction.guild_id is None:
+        await interaction.response.send_message(
+            "Could not work out which channel to unregister.", ephemeral=True
+        )
+        return
+
+    try:
+        removed, registered = await unregister_build_channel(interaction.guild_id, channel_id)
+    except (BuildDataError, OSError):
+        logger.exception("Unable to save registered channel")
+        await interaction.response.send_message(
+            "Could not save the change right now.", ephemeral=True
+        )
+        return
+
+    if not removed:
+        await interaction.response.send_message(
+            f"<#{channel_id}> was not registered.", ephemeral=True
+        )
+    elif registered:
+        mentions = ", ".join(f"<#{registered_id}>" for registered_id in registered)
+        await interaction.response.send_message(
+            f"<#{channel_id}> removed. `/build` can only be used in: {mentions}",
+            ephemeral=True,
+        )
+    else:
+        await interaction.response.send_message(
+            f"<#{channel_id}> removed. No channels are registered anymore, so `/build` "
+            "can be used in any channel on this server.",
+            ephemeral=True,
+        )
+
+
 @bot.tree.command(name="build", description="Look up a character build by alias")
 @app_commands.describe(name="Character name or alias")
 async def build_command(interaction: discord.Interaction, name: str) -> None:
+    if not await ensure_build_channel_allowed(interaction):
+        return
+
     normalized_name = " ".join(name.casefold().split())
     if not normalized_name:
         await interaction.response.send_message(
