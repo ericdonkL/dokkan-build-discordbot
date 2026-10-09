@@ -818,8 +818,14 @@ class DokkanBot(commands.Bot):
 
         data = interaction.data or {}
         command_name = interaction.command.qualified_name if interaction.command else data.get("name", "unknown")
+        # Read the raw option payload instead of interaction.namespace, which is
+        # not populated yet when this event fires.
+        raw_options = data.get("options") or []
+        while raw_options and raw_options[0].get("type") in (1, 2):
+            # Descend through subcommand / subcommand-group wrappers.
+            raw_options = raw_options[0].get("options") or []
         options = ", ".join(
-            f"{key}={value!r}" for key, value in dict(interaction.namespace).items()
+            f"{option.get('name')}={option.get('value')!r}" for option in raw_options
         )
         if interaction.guild_id:
             location = f"server {interaction.guild.name if interaction.guild else 'unknown'} ({interaction.guild_id})"
