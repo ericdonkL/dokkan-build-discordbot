@@ -2490,6 +2490,248 @@
       ],
       "skill_orbs": "Focus on Dodge with defense",
       "source": "scurrx"
+    },
+    {
+      "card_id": "1028491",
+      "name": "[Awakening of the Prince] Vegeta",
+      "image": "card_1028491.png",
+      "aliases": [
+        "TUR TEQ SS VEGETA",
+        "SAIYAN DAY",
+        "[Awakening of the Prince] Vegeta"
+      ],
+      "hidden_potential": [
+        6,
+        0,
+        15
+      ],
+      "skill_orbs": "Focus on raw DEF and Dodge with orbs.\nbuild by @.batman.616",
+      "source": "scurrx"
+    },
+    {
+      "card_id": "1026481",
+      "name": "[Resilient Power of Emotions] Kale (Berserk)",
+      "image": "card_1026481.png",
+      "aliases": [
+        "TUR AGL KAYLE",
+        "wait",
+        "[Resilient Power of Emotions] Kale (Berserk)"
+      ],
+      "hidden_potential": [
+        0,
+        0,
+        0
+      ],
+      "skill_orbs": "Wait for EZA",
+      "source": "scurrx"
+    },
+    {
+      "card_id": "1028571",
+      "name": "[Beautiful Final View] Frieza (1st Form)",
+      "image": "card_1028571.png",
+      "aliases": [
+        "TUR AGL BASE FORM FRIEZA",
+        "TUR AGL FIRST FORM FRIEZA",
+        "TUR AGL 1ST FORM FRIEZA",
+        "wait",
+        "[Beautiful Final View] Frieza (1st Form)"
+      ],
+      "hidden_potential": [
+        0,
+        0,
+        0
+      ],
+      "skill_orbs": "Wait for EZA",
+      "source": "scurrx"
+    },
+    {
+      "card_id": "1029571",
+      "name": "[Decisive Strike of Rebellion] Vegeta",
+      "image": "card_1029571.png",
+      "aliases": [
+        "TUR AGL NAMEK VEGETA",
+        "DIRTY FIREWORKS VEGETA",
+        "[Decisive Strike of Rebellion] Vegeta"
+      ],
+      "hidden_potential": [
+        9,
+        0,
+        12
+      ],
+      "skill_orbs": "Focus on Dodge with orbs.\nbuild by @.batman.616",
+      "source": "scurrx"
+    },
+    {
+      "card_id": "1030641",
+      "name": "[Wielder of Thunder Magic] Glorio",
+      "image": "card_1030641.png",
+      "aliases": [
+        "TUR PHY GLORIO",
+        "[Wielder of Thunder Magic] Glorio"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on Dodge and Additional with orbs.\nbuild by: @.batman.616",
+      "source": "scurrx"
+    },
+    {
+      "card_id": "1031081",
+      "name": "[Exciting and Heart-Pounding Adventure] Goku (Youth)",
+      "image": "card_1031081.png",
+      "aliases": [
+        "TUR AGL KID GOKU",
+        "TUR AGL GOKU (YOUTH)",
+        "SAIYAN DAY",
+        "[Exciting and Heart-Pounding Adventure] Goku (Youth)"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on raw DEF and Additional then Dodge with Orbs.\nbuild by: @.batman.616",
+      "source": "scurrx"
+    },
+    {
+      "card_id": "1028681",
+      "name": "[Determination to Protect Universe 11] Toppo",
+      "image": "card_1028681.png",
+      "aliases": [
+        "TUR PHY TOPPO",
+        "PHY GOD TOPPO",
+        "[Determination to Protect Universe 11] Toppo"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on Dodge with orbs.\nbuild by @.batman.616",
+      "source": "scurrx"
+    },
+    {
+      "card_id": "1031961",
+      "name": "[Newborn Tuffle's Super Power] Super Baby 1",
+      "image": "card_1031961.png",
+      "aliases": [
+        "TUR STR BABY",
+        "[Newborn Tuffle's Super Power] Super Baby 1"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on Dodge with orbs.\nbuild by: @.batman.616",
+      "source": "scurrx"
+    },
+    {
+      "card_id": "1032071",
+      "name": "[Response to Emergencies] Android #16",
+      "image": "card_1032071.png",
+      "aliases": [
+        "TUR AGL ANDROID 16",
+        "TUR AGL ANDROID #16",
+        "TUR AGL C16",
+        "[Response to Emergencies] Android #16"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on raw DEF and Dodge then Additional with orbs.\nbuild by: @.batman.616",
+      "source": "scurrx"
+    },
+    {
+      "card_id": "1032361",
+      "name": "[Cooperation for Justice] Ultimate Gohan + Gamma 1",
+      "image": "card_1032361.png",
+      "aliases": [
+        "TUR AGL GOHAN + GAMMA 1",
+        "TUR AGL GOHAN/GAMMA1",
+        "[Cooperation for Justice] Ultimate Gohan + Gamma 1"
+      ],
+      "hidden_potential": [
+        6,
+        0,
+        12
+      ],
+      "skill_orbs": "Focus on raw DEF and Dodge then Additional with orbs.\nbuild by: @.batman.616",
+      "source": "scurrx"
+    },
+    {
+      "card_id": "1032331",
+      "name": "[Alliance of Justice] Gamma 2 + Piccolo (Power Awakening)",
+      "image": "card_1032331.png",
+      "aliases": [
+        "TUR STR GAMMA 2 + PICCOLO",
+        "TUR STR GAMMA 2/PICCOLO",
+        "[Alliance of Justice] Gamma 2 + Piccolo (Power Awakening)"
+      ],
+      "hidden_potential": [
+        12,
+        0,
+        9
+      ],
+      "skill_orbs": "Focus on raw ATK and Dodge then Additional with orbs.\nbuild by: @.batman.616",
+      "source": "scurrx"
+    },
+    {
+      "card_id": "1033011",
+      "name": "[Battle to Resurrect the Majin] Dabura",
+      "image": "card_1033011.png",
+      "aliases": [
+        "TUR TEQ DABURA",
+        "[Battle to Resurrect the Majin] Dabura"
+      ],
+      "hidden_potential": [
+        6,
+        0,
+        15
+      ],
+      "skill_orbs": "Focus on raw DEF and Dodge then additional with orbs.\nbuild by: @.batman.616",
+      "source": "scurrx"
+    },
+    {
+      "card_id": "1033551",
+      "name": "[Inconceivable Saiyan Power] Vegeta + Nappa",
+      "image": "card_1033551.png",
+      "aliases": [
+        "TUR AGL VEGETA + NAPPA",
+        "TUR AGL VEGETA/NAPPA",
+        "TUR AGL NAPPGETA",
+        "TUR AGL NAPVEGETA",
+        "[Inconceivable Saiyan Power] Vegeta + Nappa"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on raw DEF and Dodge then additional with orbs.\nbuild by:@.batman.616",
+      "source": "scurrx"
+    },
+    {
+      "card_id": "1033841",
+      "name": "[Earth-Blanketing Army] Metal Cooler Army",
+      "image": "card_1033841.png",
+      "aliases": [
+        "TUR TEQ METAL COOLER ARMY",
+        "TUR TEQ METAL COOLER",
+        "TUR TEQ MC",
+        "[Earth-Blanketing Army] Metal Cooler Army"
+      ],
+      "hidden_potential": [
+        9,
+        0,
+        12
+      ],
+      "skill_orbs": "Focus on raw DEF or ATK and Dodge with orbs.\nbuild by: @.batman.616",
+      "source": "scurrx"
     }
   ]
 }
