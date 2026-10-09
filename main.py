@@ -69,7 +69,7 @@ DEVELOPMENT_GUILD_ID = _env_int("DISCORD_GUILD_ID")
 # Command syncing is rate limited; set SYNC_COMMANDS_ON_START=0 to skip it.
 SYNC_COMMANDS_ON_START = _env_flag("SYNC_COMMANDS_ON_START", True)
 # Whether /build results are only visible to the person who ran the command.
-BUILD_RESULTS_EPHEMERAL = True
+BUILD_RESULTS_EPHEMERAL = False
 
 # Serializes the load -> modify -> persist cycle. File I/O runs in worker
 # threads (asyncio.to_thread), so other commands can run between those steps;
