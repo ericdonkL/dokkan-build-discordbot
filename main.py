@@ -27,6 +27,20 @@ def _env_int(name: str, default: int | None = None) -> int | None:
         raise ValueError(f"{name} must be a numeric Discord ID.") from error
 
 
+def _env_int_list(name: str, default: list[int]) -> list[int]:
+    """Parse a comma-separated list of Discord IDs from the environment."""
+    value = os.getenv(name, "").strip()
+    if not value:
+        return list(default)
+    try:
+        ids = [int(part) for part in value.split(",") if part.strip()]
+    except ValueError as error:
+        raise ValueError(
+            f"{name} must be a comma-separated list of numeric Discord IDs."
+        ) from error
+    return ids or list(default)
+
+
 def _env_flag(name: str, default: bool) -> bool:
     value = os.getenv(name, "").strip().casefold()
     if not value:
@@ -41,9 +55,15 @@ IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".webp")
 
 # Server that hosts the Hidden Potential emojis (dodge / crit / add).
 HIPO_EMOJI_GUILD_ID = _env_int("HIPO_EMOJI_GUILD_ID", 901246915881074709)
-# /addbuild and /editbuild are only accepted when typed in this server.
-BUILD_ADMIN_GUILD_ID = _env_int("BUILD_ADMIN_GUILD_ID", 901246915881074709) #DEBUG SERVER
-#BUILD_ADMIN_GUILD_ID = _env_int("BUILD_ADMIN_GUILD_ID", 1146325637422919721) #VILLUHFY SERVER
+# /addbuild and /editbuild are only accepted when typed in one of these servers.
+# Override with BUILD_ADMIN_GUILD_IDS="id1,id2,..." in the environment.
+BUILD_ADMIN_GUILD_IDS = _env_int_list(
+    "BUILD_ADMIN_GUILD_IDS",
+    [
+        901246915881074709,  # DEBUG SERVER
+        1146325637422919721,  # VILLUHFY SERVER
+    ],
+)
 # Optional development server: commands are synced there instantly.
 DEVELOPMENT_GUILD_ID = _env_int("DISCORD_GUILD_ID")
 # Command syncing is rate limited; set SYNC_COMMANDS_ON_START=0 to skip it.
@@ -95,7 +115,7 @@ async def report_interaction_error(
 
 
 async def ensure_admin_context(interaction: discord.Interaction, label: str) -> bool:
-    """Refuse an interaction unless it comes from the designated admin server.
+    """Refuse an interaction unless it comes from one of the designated admin servers.
 
     ``label`` is the command name shown in the refusal message (e.g. ``/addbuild``).
 
@@ -103,9 +123,9 @@ async def ensure_admin_context(interaction: discord.Interaction, label: str) -> 
     themselves, the modals that persist data, and the view that opens the second
     modal. A caller may only proceed when this returns ``True``.
     """
-    if interaction.guild_id != BUILD_ADMIN_GUILD_ID:
+    if interaction.guild_id not in BUILD_ADMIN_GUILD_IDS:
         await interaction.response.send_message(
-            f"`{label}` can only be used in the designated server.", ephemeral=True
+            f"`{label}` can only be used in a designated server.", ephemeral=True
         )
         return False
 
@@ -823,38 +843,39 @@ class DokkanBot(commands.Bot):
 
     async def sync_admin_commands(self) -> None:
         """Register the server-restricted admin commands (/addbuild, /editbuild)."""
-        admin_guild = discord.Object(id=BUILD_ADMIN_GUILD_ID)
-        if not self.tree.get_commands(guild=admin_guild):
-            logger.error(
-                "No commands are registered locally for admin server %s; check the "
-                "@app_commands.guilds decorators on /addbuild and /editbuild",
-                BUILD_ADMIN_GUILD_ID,
-            )
-            return
+        for admin_guild_id in BUILD_ADMIN_GUILD_IDS:
+            admin_guild = discord.Object(id=admin_guild_id)
+            if not self.tree.get_commands(guild=admin_guild):
+                logger.error(
+                    "No commands are registered locally for admin server %s; check the "
+                    "@app_commands.guilds decorators on /addbuild and /editbuild",
+                    admin_guild_id,
+                )
+                continue
 
-        if DEVELOPMENT_GUILD_ID == BUILD_ADMIN_GUILD_ID:
+            if DEVELOPMENT_GUILD_ID == admin_guild_id:
+                logger.info(
+                    "Admin server %s already synced as the development server",
+                    admin_guild_id,
+                )
+                continue
+
+            try:
+                synced = await self.tree.sync(guild=admin_guild)
+            except discord.HTTPException:
+                logger.exception(
+                    "Could not sync commands to admin server %s; /addbuild and /editbuild "
+                    "will not appear until the bot is a member of that server",
+                    admin_guild_id,
+                )
+                continue
+
             logger.info(
-                "Admin server %s already synced as the development server",
-                BUILD_ADMIN_GUILD_ID,
+                "Synced %d commands to admin server %s: %s",
+                len(synced),
+                admin_guild_id,
+                ", ".join(command.name for command in synced) or "none",
             )
-            return
-
-        try:
-            synced = await self.tree.sync(guild=admin_guild)
-        except discord.HTTPException:
-            logger.exception(
-                "Could not sync commands to admin server %s; /addbuild and /editbuild "
-                "will not appear until the bot is a member of that server",
-                BUILD_ADMIN_GUILD_ID,
-            )
-            return
-
-        logger.info(
-            "Synced %d commands to admin server %s: %s",
-            len(synced),
-            BUILD_ADMIN_GUILD_ID,
-            ", ".join(command.name for command in synced) or "none",
-        )
 
 
 bot = DokkanBot(command_prefix=commands.when_mentioned, intents=discord.Intents.default())
@@ -868,7 +889,7 @@ async def ping(interaction: discord.Interaction) -> None:
 
 @bot.tree.command(name="addbuild", description="Add a character build to the local database")
 @app_commands.default_permissions(administrator=True)
-@app_commands.guilds(BUILD_ADMIN_GUILD_ID)
+@app_commands.guilds(*BUILD_ADMIN_GUILD_IDS)
 async def addbuild(interaction: discord.Interaction) -> None:
     if not await ensure_admin_context(interaction, "/addbuild"):
         return
@@ -878,7 +899,7 @@ async def addbuild(interaction: discord.Interaction) -> None:
 
 @bot.tree.command(name="editbuild", description="Edit an existing character build")
 @app_commands.default_permissions(administrator=True)
-@app_commands.guilds(BUILD_ADMIN_GUILD_ID)
+@app_commands.guilds(*BUILD_ADMIN_GUILD_IDS)
 @app_commands.describe(card_id="Existing card ID")
 async def editbuild(interaction: discord.Interaction, card_id: str) -> None:
     if not await ensure_admin_context(interaction, "/editbuild"):
