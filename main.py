@@ -1191,8 +1191,8 @@ async def unregisterchannel(
         )
 
 
-@bot.tree.command(name="build", description="Look up a character build by alias")
-@app_commands.describe(name="Character name or alias")
+@bot.tree.command(name="build", description="Look up a character build by name, alias or card ID")
+@app_commands.describe(name="Character name, alias or card ID")
 async def build_command(interaction: discord.Interaction, name: str) -> None:
     if not await ensure_build_channel_allowed(interaction):
         return
@@ -1200,7 +1200,7 @@ async def build_command(interaction: discord.Interaction, name: str) -> None:
     normalized_name = " ".join(name.casefold().split())
     if not normalized_name:
         await interaction.response.send_message(
-            "Enter a character name or alias to search for.", ephemeral=True
+            "Enter a character name, alias or card ID to search for.", ephemeral=True
         )
         return
 
@@ -1219,6 +1219,15 @@ async def build_command(interaction: discord.Interaction, name: str) -> None:
         )
         return
 
+    # A card ID goes straight to that build, skipping the selection buttons.
+    if normalized_name.isascii() and normalized_name.isdigit():
+        card_id_matches = [
+            character for character in builds if character["card_id"] == normalized_name
+        ]
+        if len(card_id_matches) == 1:
+            await send_build_result(interaction, card_id_matches[0])
+            return
+
     exact_name_matches = [
         character
         for character in builds
@@ -1232,7 +1241,7 @@ async def build_command(interaction: discord.Interaction, name: str) -> None:
     if not matches:
         safe_name = discord.utils.escape_mentions(name)
         await interaction.response.send_message(
-            f"No build found for **{safe_name}**. Check the spelling or try another name.",
+            f"No build found for **{safe_name}**. Check the spelling or try another name.\n*If its an old unit this means you should wait for them to EZA/SEZA.*",
             ephemeral=True,
         )
         return
