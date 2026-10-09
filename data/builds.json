@@ -2732,6 +2732,22 @@
       ],
       "skill_orbs": "Focus on raw DEF or ATK and Dodge with orbs.\nbuild by: @.batman.616",
       "source": "scurrx"
+    },
+    {
+      "card_id": "1020341",
+      "name": "[True Warrior Race] Super Saiyan God SS Evolved Vegeta",
+      "image": "card_1020341.png",
+      "aliases": [
+        "EZA LR INT SSBE VEGETA",
+        "[True Warrior Race] Super Saiyan God SS Evolved Vegeta"
+      ],
+      "hidden_potential": [
+        15,
+        0,
+        6
+      ],
+      "skill_orbs": "Focus on Def and Dodge with orbs.",
+      "source": "scurrx"
     }
   ]
 }

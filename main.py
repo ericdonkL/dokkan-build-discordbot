@@ -2,6 +2,7 @@ import asyncio
 import logging
 import json
 import os
+import re
 from pathlib import Path
 from typing import TypedDict
 
@@ -55,8 +56,9 @@ CHANNEL_DATA_PATH = PROJECT_DIR / "data" / "channels.json"
 THUMBS_DIR = PROJECT_DIR / "thumbs"
 IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".webp")
 
-# Server that hosts the Hidden Potential emojis (dodge / crit / add).
-HIPO_EMOJI_GUILD_ID = _env_int("HIPO_EMOJI_GUILD_ID", 901246915881074709)
+# Server that hosts the Hidden Potential emojis (dodge / crit / add). Always used,
+# whichever server /build is run in. The bot must be a member of this server.
+HIPO_EMOJI_GUILD_ID = 901246915881074709
 # /addbuild and /editbuild are only accepted when typed in one of these servers.
 # Override with BUILD_ADMIN_GUILD_IDS="id1,id2,..." in the environment.
 BUILD_ADMIN_GUILD_IDS = _env_int_list(
@@ -227,6 +229,32 @@ def load_character_builds(*, strict: bool = True) -> list[CharacterBuild]:
                 "Skipping invalid character build at index %d: %s", index, error
             )
     return builds
+
+
+CARD_LINK_PATTERN = re.compile(
+    r"^(?:https?://)?(?:(?:[a-z0-9-]+\.)*dokkaninfo\.com|(?:www\.)?dokkandb\.com)"
+    r"/cards/(\d+)/?(?:[?#].*)?$",
+    re.IGNORECASE,
+)
+
+
+def parse_card_id(text: str) -> str | None:
+    """Return the card ID from a bare ID or a dokkaninfo / dokkandb card link.
+
+    Accepts e.g. ``1034381``, ``https://glben.dokkaninfo.com/cards/1034381``,
+    ``https://glben.dokkaninfo.com/cards/1034381?eza=true`` and
+    ``https://www.dokkandb.com/cards/1026431``. Returns None for anything else.
+    """
+    cleaned = text.strip()
+    # Discord wraps links in <...> to suppress embeds; tolerate that.
+    if cleaned.startswith("<") and cleaned.endswith(">"):
+        cleaned = cleaned[1:-1].strip()
+
+    if cleaned.isascii() and cleaned.isdigit():
+        return cleaned
+
+    link_match = CARD_LINK_PATTERN.match(cleaned)
+    return link_match.group(1) if link_match else None
 
 
 def find_build_matches(query: str, builds: list[CharacterBuild]) -> list[CharacterBuild]:
@@ -461,9 +489,9 @@ def resolve_target_channel_id(
 
 class AddBuildModal(discord.ui.Modal, title="Add character build"):
     card_id_input = discord.ui.TextInput(
-        label="Card ID",
-        placeholder="Ex. 1031501 for LR PHY Omega Shenron",
-        max_length=7,
+        label="Card ID or card link",
+        placeholder="Ex. 1031501 or https://glben.dokkaninfo.com/cards/1031501",
+        max_length=200,
     )
     name_input = discord.ui.TextInput(
         label="Character Name",
@@ -485,10 +513,11 @@ class AddBuildModal(discord.ui.Modal, title="Add character build"):
         if not await ensure_admin_context(interaction, "/addbuild"):
             return
 
-        card_id = self.card_id_input.value.strip()
-        if not card_id.isascii() or not card_id.isdigit():
+        card_id = parse_card_id(self.card_id_input.value)
+        if card_id is None:
             await interaction.response.send_message(
-                "Card ID must contain only digits.", ephemeral=True
+                "Enter a card ID (digits only) or a dokkaninfo / dokkandb card link.",
+                ephemeral=True,
             )
             return
 
@@ -1076,17 +1105,19 @@ async def addbuild(interaction: discord.Interaction) -> None:
 @bot.tree.command(name="editbuild", description="Edit an existing character build")
 @app_commands.default_permissions(administrator=True)
 @app_commands.guilds(*BUILD_ADMIN_GUILD_IDS)
-@app_commands.describe(card_id="Existing card ID")
+@app_commands.describe(card_id="Existing card ID or card link")
 async def editbuild(interaction: discord.Interaction, card_id: str) -> None:
     if not await ensure_admin_context(interaction, "/editbuild"):
         return
 
-    card_id = card_id.strip()
-    if not card_id.isascii() or not card_id.isdigit():
+    parsed_card_id = parse_card_id(card_id)
+    if parsed_card_id is None:
         await interaction.response.send_message(
-            "Card ID must contain only digits.", ephemeral=True
+            "Enter a card ID (digits only) or a dokkaninfo / dokkandb card link.",
+            ephemeral=True,
         )
         return
+    card_id = parsed_card_id
 
     try:
         builds = await asyncio.to_thread(load_character_builds, strict=False)
@@ -1192,7 +1223,7 @@ async def unregisterchannel(
 
 
 @bot.tree.command(name="build", description="Look up a character build by name, alias or card ID")
-@app_commands.describe(name="Character name, alias or card ID")
+@app_commands.describe(name="Character name, alias, card ID or card link")
 async def build_command(interaction: discord.Interaction, name: str) -> None:
     if not await ensure_build_channel_allowed(interaction):
         return
@@ -1220,9 +1251,10 @@ async def build_command(interaction: discord.Interaction, name: str) -> None:
         return
 
     # A card ID goes straight to that build, skipping the selection buttons.
-    if normalized_name.isascii() and normalized_name.isdigit():
+    searched_card_id = parse_card_id(name)
+    if searched_card_id is not None:
         card_id_matches = [
-            character for character in builds if character["card_id"] == normalized_name
+            character for character in builds if character["card_id"] == searched_card_id
         ]
         if len(card_id_matches) == 1:
             await send_build_result(interaction, card_id_matches[0])
