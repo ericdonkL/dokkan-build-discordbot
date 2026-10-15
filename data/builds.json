@@ -2734,19 +2734,42 @@
       "source": "scurrx"
     },
     {
-      "card_id": "1020341",
-      "name": "[True Warrior Race] Super Saiyan God SS Evolved Vegeta",
-      "image": "card_1020341.png",
+      "card_id": "1034741",
+      "name": "[Fused Fighting Force] Super Saiyan Goku (Angel) & Super Saiyan Vegeta (Angel)",
+      "image": "card_1034741.png",
       "aliases": [
-        "EZA LR INT SSBE VEGETA",
-        "[True Warrior Race] Super Saiyan God SS Evolved Vegeta"
+        "LR PHY SS GOKU & SS VEGETA",
+        "LR PHY SSJ GOKU & SSJ VEGETA",
+        "LR PHY GOGETA",
+        "ANGEL",
+        "[Fused Fighting Force] Super Saiyan Goku (Angel) & Super Saiyan Vegeta (Angel)"
       ],
       "hidden_potential": [
-        15,
+        12,
         0,
-        6
+        9
       ],
-      "skill_orbs": "Focus on Def and Dodge with orbs.",
+      "skill_orbs": "Focus on raw stats and dodge then additional with orbs.\nbuild by: @.batman.616",
+      "source": "scurrx"
+    },
+    {
+      "card_id": "1034761",
+      "name": "[Fused Super Power] Super Saiyan Goku & Super Saiyan Vegeta",
+      "image": "card_1034761.png",
+      "aliases": [
+        "LR INT SS GOKU & VEGETA",
+        "LR INT SSJ GOKU & VEGITO",
+        "LR INT VEGITO",
+        "LR INT SUPER VEGITO",
+        "LR INT SV",
+        "[Fused Super Power] Super Saiyan Goku & Super Saiyan Vegeta"
+      ],
+      "hidden_potential": [
+        12,
+        0,
+        9
+      ],
+      "skill_orbs": "Focus on raw stats and dodge then additional with orbs\nbuild by: @.batman.616",
       "source": "scurrx"
     }
   ]
